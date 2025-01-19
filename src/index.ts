@@ -1,9 +1,9 @@
 import { WebUser } from "./WebUser";
 //import { UserState } from "./UserState";
-import { Customer } from "./customer";
+import { Customer } from "./Customer";
 import { Product } from './Product';
 import { Order } from "./Order";
-import { LineItem } from './Lineitem';
+import { LineItem } from './LineItem';
 
 console.log(
     "############# User #############"

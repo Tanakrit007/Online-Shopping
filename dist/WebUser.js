@@ -6,7 +6,7 @@ class WebUser {
     constructor(login_id, password) {
         this.login_id = login_id;
         this.password = password;
-        this.state = UserState_1.UserState.NEW;
+        this.state = UserState_1.UserState.New;
     }
     getLoginId() {
         return this.login_id;

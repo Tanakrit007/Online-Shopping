@@ -1,4 +1,4 @@
-import { UserState } from './UserState';
+import { UserState } from "./UserState";
 export class WebUser {
     private login_id: string;
     private password: string;
@@ -7,7 +7,7 @@ export class WebUser {
     constructor(login_id: string, password: string) {
         this.login_id = login_id;
         this.password = password;
-        this.state = UserState.NEW;
+        this.state = UserState.New;
     }
 
     public getLoginId(): string {

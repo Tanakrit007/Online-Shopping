@@ -1,47 +1,22 @@
-import { WebUser } from './WebUser';
+// Customer.ts
+import { WebUser } from "./WebUser";
+
 export class Customer {
-    private webUser : WebUser
-    private id: string
-    private address:string
-    private phone:string
-    private email:string
+    private id: string;
+    private name: string;
+    private phone: string;
+    private email: string;
+    private webUser: WebUser;
 
-
-    constructor(id:string,address:string,phone:string,email:string,webUser:WebUser){
-        this.id = id
-        this.address  = address
-        this.phone  = phone 
-        this.email = email
-        this.webUser = webUser
-    }
-    public getID():string{
-        return this.id
+    constructor(id: string, name: string, phone: string, email: string, webUser: WebUser) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.webUser = webUser;
     }
 
-    public getAddress():string{
-        return this.address
-    }
-
-    public setAddress(address:string):void{
-        this.address = address
-    }
-
-    public getPhone():string{
-        return this.phone
-    }
-
-    public setPhone(phone:string):void{
-        this.phone = phone
-    }
-
-    public getEmail():string{
-        return this.email
-    }
-
-    public setEmail(email:string):void{
-        this.email = email
-    }
     toString(): string {
-    return `Customer [ID = ${this.id}],[Address = ${this.address}],[Phone = ${this.phone}],[Email = ${this.email}]`;
+        return `Customer [id=${this.id}, name=${this.name}, phone=${this.phone}, email=${this.email}]`;
     }
 }

@@ -7,26 +7,8 @@ class LineItem {
         this.price = price;
         this.product = product;
     }
-    getQuantity() {
-        return this.quantity;
-    }
-    setQuantity(quantity) {
-        this.quantity = quantity;
-    }
-    getPrice() {
-        return this.price;
-    }
-    setPrice(price) {
-        this.price = price;
-    }
-    getProduct() {
-        return this.product;
-    }
-    setProduct(product) {
-        this.product = product;
-    }
     toString() {
-        return `LineItem [Quantity = ${this.quantity}],[Price = ${this.price}],[Product = ${this.product}]`;
+        return `LineItem [quantity=${this.quantity}, price=${this.price}, product=${this.product.toString()}]`;
     }
 }
 exports.LineItem = LineItem;

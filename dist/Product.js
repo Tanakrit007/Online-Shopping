@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Product = void 0;
+// Product.ts
 class Product {
     constructor(id, name, supplier) {
         this.id = id;
@@ -13,17 +14,11 @@ class Product {
     getName() {
         return this.name;
     }
-    setName(name) {
-        this.name = name;
-    }
     getSupplier() {
         return this.supplier;
     }
-    setSupplier(supplier) {
-        this.supplier = supplier;
-    }
     toString() {
-        return `Product [ID = ${this.id}],[Name = ${this.name}],[Supplier = ${this.supplier}]`;
+        return `Product [id=${this.id}, name=${this.name}, supplier=${this.supplier}]`;
     }
 }
 exports.Product = Product;

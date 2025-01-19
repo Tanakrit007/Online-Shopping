@@ -1,28 +1,30 @@
-// Product.ts
+// สร้างคลาส Product
 export class Product {
     private id: string;
     private name: string;
-    private supplier: string;
+    private brand: string;
+    private price: number; // เพิ่มราคาสินค้า
 
-    constructor(id: string, name: string, supplier: string) {
+    constructor(id: string, name: string, brand: string, price: number) {
         this.id = id;
         this.name = name;
-        this.supplier = supplier;
+        this.brand = brand;
+        this.price = price; // กำหนดราคาสินค้าใน constructor
     }
 
-    getId(): string {
+    public getId(): string {
         return this.id;
     }
 
-    getName(): string {
+    public getName(): string {
         return this.name;
     }
 
-    getSupplier(): string {
-        return this.supplier;
+    public getBrand(): string {
+        return this.brand;
     }
 
-    toString(): string {
-        return `Product [id=${this.id}, name=${this.name}, supplier=${this.supplier}]`;
+    public getPrice(): number { // เพิ่มเมธอดนี้เพื่อดึงราคาสินค้า
+        return this.price;
     }
 }

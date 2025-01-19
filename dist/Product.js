@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Product = void 0;
-// Product.ts
+// สร้างคลาส Product
 class Product {
-    constructor(id, name, supplier) {
+    constructor(id, name, brand, price) {
         this.id = id;
         this.name = name;
-        this.supplier = supplier;
+        this.brand = brand;
+        this.price = price; // กำหนดราคาสินค้าใน constructor
     }
     getId() {
         return this.id;
@@ -14,11 +15,11 @@ class Product {
     getName() {
         return this.name;
     }
-    getSupplier() {
-        return this.supplier;
+    getBrand() {
+        return this.brand;
     }
-    toString() {
-        return `Product [id=${this.id}, name=${this.name}, supplier=${this.supplier}]`;
+    getPrice() {
+        return this.price;
     }
 }
 exports.Product = Product;

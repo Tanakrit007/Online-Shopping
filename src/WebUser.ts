@@ -1,36 +1,23 @@
-import { UserState } from "./UserState";
+import { Order } from "./Order";
 export class WebUser {
     private login_id: string;
     private password: string;
-    private state: UserState;
+    private orders: Order[] = []; // ฟิลด์ใหม่สำหรับเก็บคำสั่งซื้อ
 
     constructor(login_id: string, password: string) {
         this.login_id = login_id;
         this.password = password;
-        this.state = UserState.New;
     }
 
-    public getLoginId(): string {
-        return this.login_id;
+    public getName(): string {
+        return this.login_id; // หรือจะดึงชื่อผู้ใช้จากฟิลด์อื่นก็ได้
     }
 
-    public getPassword(): string {
-        return this.password;
+    public addOrder(order: Order): void {
+        this.orders.push(order);
     }
 
-    public setPassword(password: string): void {
-        this.password = password;
-    }
-
-    public getState(): UserState {
-        return this.state;
-    }
-
-    public setState(state: UserState): void {
-        this.state = state;
-    }
-
-    public toString(): string {
-        return `Login ID: ${this.login_id}, Password: ${this.password}, State: ${this.state}`;
+    public getOrders(): Order[] {
+        return this.orders;
     }
 }

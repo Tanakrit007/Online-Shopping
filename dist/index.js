@@ -1,50 +1,45 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const WebUser_1 = require("./WebUser");
-const Customer_1 = require("./Customer");
 const Product_1 = require("./Product");
 const LineItem_1 = require("./LineItem");
-console.log("############# User #############");
-const user1 = new WebUser_1.WebUser("001", "123400");
-console.log(user1.toString());
-console.log("############# Customer #############");
-const customer1 = new Customer_1.Customer("001", "Nakon", "087777777", "ihum@mail.com", user1);
-console.log(customer1.toString());
-console.log("############# Product #############");
-const product0 = new Product_1.Product("001", "Lay", "Ex");
-console.log(product0.toString());
-console.log("############# LineItem #############");
-const lineItem1 = new LineItem_1.LineItem(50, 100, product0);
-console.log(lineItem1.toString());
-console.log("############# Account #############");
-const accountUser = new WebUser_1.WebUser("ART_DOE", "password123");
-const product1 = new Product_1.Product("PROD001", "Laptop", "Dell");
-const product2 = new Product_1.Product("PROD002", "Phone", "ROG");
-const product3 = new Product_1.Product("PROD003", "Laptop", "Dell");
-const product4 = new Product_1.Product("PROD004", "Phone", "ROG");
-const product5 = new Product_1.Product("PROD005", "Laptop", "Dell");
-console.log("\n=== User Information ===");
-console.log("State:", accountUser.getState());
-console.log("\n=== Product List ===");
-console.log("Product 1:");
-console.log("  - ID:", product1.getId());
-console.log("  - Name:", product1.getName());
-console.log("  - Supplier:", product1.getSupplier());
-console.log("\nProduct 2:");
-console.log("  - ID:", product2.getId());
-console.log("  - Name:", product2.getName());
-console.log("  - Supplier:", product2.getSupplier());
-console.log();
-console.log("Product 3:");
-console.log("  - ID:", product3.getId());
-console.log("  - Name:", product3.getName());
-console.log("  - Supplier:", product3.getSupplier());
-console.log("\nProduct 4:");
-console.log("  - ID:", product4.getId());
-console.log("  - Name:", product4.getName());
-console.log("  - Supplier:", product4.getSupplier());
-console.log();
-console.log("Product 5:");
-console.log("  - ID:", product5.getId());
-console.log("  - Name:", product5.getName());
-console.log("  - Supplier:", product5.getSupplier());
+const Order_1 = require("./Order");
+// สร้างสินค้า
+const product1 = new Product_1.Product("001", "Pen", "Stationery Brand", 10);
+const product2 = new Product_1.Product("002", "Pencil", "Stationery Brand", 5);
+const product3 = new Product_1.Product("003", "Notebook", "Stationery Brand", 15);
+const product4 = new Product_1.Product("004", "Eraser", "Stationery Brand", 7);
+const product5 = new Product_1.Product("005", "Ruler", "Stationery Brand", 8);
+// แสดงสินค้า
+console.log("\n=== Available Products ===");
+console.log(`ID: ${product1.getId()}, Name: ${product1.getName()}, Brand: ${product1.getBrand()}, Price: $${product1.getPrice()}`);
+console.log(`ID: ${product2.getId()}, Name: ${product2.getName()}, Brand: ${product2.getBrand()}, Price: $${product2.getPrice()}`);
+console.log(`ID: ${product3.getId()}, Name: ${product3.getName()}, Brand: ${product3.getBrand()}, Price: $${product3.getPrice()}`);
+console.log(`ID: ${product4.getId()}, Name: ${product4.getName()}, Brand: ${product4.getBrand()}, Price: $${product4.getPrice()}`);
+console.log(`ID: ${product5.getId()}, Name: ${product5.getName()}, Brand: ${product5.getBrand()}, Price: $${product5.getPrice()}`);
+// สร้างผู้ใช้
+const user1 = new WebUser_1.WebUser("user1", "password1");
+const user2 = new WebUser_1.WebUser("user2", "password2");
+// สร้างคำสั่งซื้อและตะกร้าสินค้า
+const cart1 = new LineItem_1.LineItem(1, 10, product1);
+cart1.addItem(new LineItem_1.LineItem(2, 5, product2)); // เพิ่มสินค้า
+const order1 = new Order_1.Order("ORD001", "2025-01-19", "2025-01-20", "123 Main St", [cart1]); // สร้างคำสั่งซื้อ
+user1.addOrder(order1); // เพิ่มคำสั่งซื้อให้ user1
+const cart2 = new LineItem_1.LineItem(1, 15, product3);
+cart2.addItem(new LineItem_1.LineItem(2, 7, product4)); // เพิ่มสินค้า
+const order2 = new Order_1.Order("ORD002", "2025-01-19", "2025-01-20", "456 Main St", [cart2]); // สร้างคำสั่งซื้อ
+user2.addOrder(order2); // เพิ่มคำสั่งซื้อให้ user2
+// แสดงรายละเอียดของคำสั่งซื้อของ user1
+console.log("\n=== User1 Order Details ===");
+console.log("User: " + user1.getName()); // แสดงชื่อผู้ใช้
+console.log("Order Number: " + order1.getNumber()); // แสดงหมายเลขคำสั่งซื้อ
+console.log("Shipping Address: " + order1.getShipTo()); // แสดงที่อยู่จัดส่ง
+console.log("Total Price: " + order1.calculateTotal()); // แสดงราคาสุทธิจากคำสั่งซื้อ
+console.log("Line Items: ", order1.getLineItems()); // แสดงรายการสินค้าที่อยู่ในคำสั่งซื้อ
+// แสดงรายละเอียดของคำสั่งซื้อของ user2
+console.log("\n=== User2 Order Details ===");
+console.log("User: " + user2.getName()); // แสดงชื่อผู้ใช้
+console.log("Order Number: " + order2.getNumber()); // แสดงหมายเลขคำสั่งซื้อ
+console.log("Shipping Address: " + order2.getShipTo()); // แสดงที่อยู่จัดส่ง
+console.log("Total Price: " + order2.calculateTotal()); // แสดงราคาสุทธิจากคำสั่งซื้อ
+console.log("Line Items: ", order2.getLineItems()); // แสดงรายการสินค้าที่อยู่ในคำสั่งซื้อ
